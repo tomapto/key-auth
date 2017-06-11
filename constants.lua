@@ -105,6 +105,10 @@ return {
         ["/api/fonts/:ownerId/:fontname"]=
         {
             ["DELETE"]="fonts:write"
+         },
+         ["/api/uploads/:ownerId"]=
+         {
+            ["GET"]="uploads:list"
          }
 }
   

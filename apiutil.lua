@@ -40,7 +40,7 @@ _M.get_uri_params=function (pattern,uri,origparams)
 --如果pattern中无变量，则直接判断uri与pattern是否匹配
   if string.find(pattern,":",1) then
     --local from,_,err=ngx.re.find(uri, pattern, "oj")
---如果pattern中有变量，则依次判断,如果不匹配返回nil，如果匹配则进入下一次判断，如果为变量则放入uri_params中  
+--如果pattern中有变量，则依次判断,如果不匹配返回nil，如果匹配则进入下一次判断，如果为变量则放入uri_params中
     local baseurl=_M.split(uri,"?")[1]
     local uri_vals = _M.split(baseurl,"/")
     local pattern_vals = _M.split(pattern,"/")
@@ -48,9 +48,9 @@ _M.get_uri_params=function (pattern,uri,origparams)
       return nil
     end
     for i=1,#pattern_vals do
-      
+
       local curstr = pattern_vals[i]
-        
+
       if string.len(curstr)~=0 then
         local startIndex,endIndex = string.find(curstr,":",1)
         --为变量，则存入table
@@ -74,7 +74,7 @@ _M.get_uri_params=function (pattern,uri,origparams)
       end
       local restable = utils.table_merge(origparams,params)
       return restable
-     else 
+     else
       return params
      end
    end
@@ -100,7 +100,7 @@ _M.generateScope=function(...)
       end
     end
     return scopeStr
-end 
+end
 
 --根据三个参数生成token
 _M.generateToken =function(usage,ownerid,tokenId)
@@ -108,8 +108,8 @@ _M.generateToken =function(usage,ownerid,tokenId)
     local tokenEnd=string.gsub(math.random(),".","",2)
     return usage.."."..token.."."..tokenEnd
 
-end 
- 
+end
+
 
 
 
@@ -123,11 +123,11 @@ _M.retrieve_parameters=function()
     body_parameters = Multipart(ngx.req.get_body_data(), content_type):get_all()
   elseif content_type and string.find(content_type:lower(), "application/json", nil, true) then
     body_parameters, err = cjson.decode(ngx.req.get_body_data())
-    if err then 
-      body_parameters = {} 
+    if err then
+      body_parameters = {}
     end
   else
-    body_parameters = public_utils.get_post_args()
+    body_parameters = public_utils.get_body_args()
   end
 
   return utils.table_merge(ngx.req.get_uri_args(), body_parameters)
