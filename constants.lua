@@ -85,15 +85,19 @@ return {
           ["GET"]="datasets:read",
           ["POST"]="datasets:read"
          },
-          ["/tileSet/user/:ownerId"]=
+          ["/api/tileSet/account/:ownerId"]=
         {
           ["GET"]="tilesets:list"
          },
-        ["/tileSet/:sources"]=
+        ["/api/tileSet/:sources"]=
         {
           ["GET"]="tilesets:read",
           ["DELETE,PUT"]="tilesets:write"
          },
+        ["/api/tileSet/:sources/:jsonstats"]=
+        {
+          ["GET"]="tilesets:read"
+        },
         ["/api/fonts/:ownerId/:font/:range"]=
         {
           ["GET"]="fonts:read"
@@ -118,10 +122,15 @@ return {
         ["/api/fonts/:ownerId/:fontname"]=
         {
             ["DELETE"]="fonts:write"
-         },
-         ["/api/uploads/:ownerId"]=
-         {
-            ["GET"]="uploads:list"
-         }
+        },
+        ["/api/uploads/:ownerId"]=
+        {
+            ["GET"]="uploads:list",
+            ["POST"]="uploads:write"
+        },
+        ["/api/uploads/:ownerId/credentials"]=
+        {
+           ["GET"]="uploads:write"
+        }
 }
   
