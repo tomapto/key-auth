@@ -145,16 +145,13 @@ function KeyAuthHandler:access(conf)
   --静态资源直接转发
   local oriUri=apiutil.split(ngx.req.raw_header()," ")[2]
   local base_url=apiutil.split(oriUri,"?")[1]
-  local tempStaticurl=string.reverse(base_url)
-  local static_table = {"sj.","ssc.","oci.","gnp.","gpj.","ftt.","ssel.","nosj.","xsj.","selitbm.","statsnosj","pam."}
+  --local tempStaticurl=string.reverse(base_url)
+  --local static_table = {"sj.","ssc.","oci.","gnp.","gpj.","ftt.","ssel.","nosj.","xsj.","selitbm.","statsnosj","pam."}
   local flag = false
-  local i 
-  for i = 1,#static_table do
-    local static_index,static_end = string.find(tempStaticurl,static_table[i],1)
-    if static_index==1 then
-      flag=true
-      break
-    end
+  local static_index =string.find(base_url, "/api", 1)
+  local core_index =string.find(base_url, "/core", 1)
+  if static_index~=1 and core_index~=1 then
+    flag=true
   end
 
 

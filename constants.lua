@@ -72,11 +72,11 @@ return {
           ["PATCH,DELETE"]="datasets:write",
           ["GET"]="datasets:read"
          },     
-          ["/tileset/user/:ownerid"]=
+          ["/api/tileSet/account/:ownerid"]=
         {
           ["GET"]="tilesets:list"
          },
-        ["/tileSet/:sources"]=
+        ["/api/tileSet/:sources"]=
         {
           ["GET"]="tilesets:read",
           ["DELETE,PUT"]="tilesets:write"
