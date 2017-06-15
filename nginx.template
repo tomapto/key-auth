@@ -17,6 +17,15 @@ http {
             listen 80 default_server;
             listen [::]:80 default_server;
             server_name _;
-            return 301 https://$host$request_uri;
+            return 301 https://www.map.design$request_uri;
         }
+     server {
+            listen 443 ssl;
+            server_name map.design;
+
+            ssl_certificate /mnt/certificate/213941984030975.pem;
+            ssl_certificate_key /mnt/certificate/213941984030975.key;
+            return 301 https://www.map.design$request_uri;
+        }
+
 }
