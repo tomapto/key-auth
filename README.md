@@ -25,3 +25,5 @@ curl -X POST http://localhost:8001/apis/mapdesign/plugins --data "name= key-auth
 ```
 ##kong 插件目录:
 /usr/local/share/lua/5.1/kong/plugins/key-auth/
+##启动kong
+kong restart -c /etc/kong/kong.conf.default --nginx-conf /usr/local/share/lua/5.1/kong/plugins/key-auth/nginx.template 

@@ -18,44 +18,44 @@ return {
         {
           ["GET"]="scopes:list"
         },
-        ["/styles/:ownerId"]=
+        ["/api/styles/:ownerId"]=
         {
           ["GET"]="styles:list",
           ["POST"]="styles:write"
          },
-         ["/styles/:ownerId/duplicate"]=
+         ["/api/styles/:ownerId/duplicate"]=
         {
           ["POST"]="styles:write"
          },
-           ["/styles/:ownerId/:styleId"]=
+           ["/api/styles/:ownerId/:styleId"]=
         {
           ["DELETE"]="styles:write"
          },
-           ["/styles/:ownerId/:styleId/share"]=
+           ["/api/styles/:ownerId/:styleId/share"]=
         {
           ["GET"]="styles:read"
          },
-           ["/styles/:ownerId/:styleId.zip"]=
+           ["/api/styles/:ownerId/:styleId.zip"]=
         {
           ["GET"]="styles:read"
          },  
-         ["/styles/:ownerId/:styleId/:subResourceId/static"]=
+         ["/api/styles/:ownerId/:styleId/:subResourceId/static"]=
         {
           ["GET"]="styles:read"
          },  
-         ["/styles/:ownerId/:styleId/:subResourceId/sprite:name"]=
+         ["/api/styles/:ownerId/:styleId/:subResourceId/sprite:name"]=
         {
           ["GET"]="styles:read"
          },             
-          ["/styles/:ownerId/:styleId/draft/sprite/:iconId"]=
+          ["/api/styles/:ownerId/:styleId/draft/sprite/:iconId"]=
          {
           ["PUT,DELETE"]="styles:write"
          },
-         ["/styles/:ownerId/:styleId/:subResourceId"]=
+         ["/api/styles/:ownerId/:styleId/:subResourceId"]=
         {
           ["GET"]="styles:read"
          },  
-         ["/styles/:ownerId/:styleId"]=
+         ["/api/styles/:ownerId/:styleId"]=
         {
           ["PATCH"]="styles:write"
          }, 
