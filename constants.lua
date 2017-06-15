@@ -29,7 +29,7 @@ return {
          },
            ["/api/styles/:ownerId/:styleId"]=
         {
-          ["DELETE"]="styles:write"
+          ["DELETE,PATCH"]="styles:write"
          },
            ["/api/styles/:ownerId/:styleId/share"]=
         {
@@ -54,11 +54,7 @@ return {
          ["/api/styles/:ownerId/:styleId/:subResourceId"]=
         {
           ["GET"]="styles:read"
-         },  
-         ["/api/styles/:ownerId/:styleId"]=
-        {
-          ["PATCH"]="styles:write"
-         }, 
+         },
          ["/upload/tokens/:ownerId"]=
         {
           ["GET"]="tokens:write"
