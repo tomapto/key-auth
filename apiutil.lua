@@ -48,9 +48,9 @@ _M.get_uri_params=function (pattern,uri,origparams)
       return nil
     end
     for i=1,#pattern_vals do
-      
+
       local curstr = pattern_vals[i]
-        
+
       if string.len(curstr)~=0 then
         local startIndex,endIndex = string.find(curstr,":",1)
         --为变量，则存入table
@@ -58,6 +58,11 @@ _M.get_uri_params=function (pattern,uri,origparams)
           local key = string.gsub(curstr,":","",1)
             params[key]=uri_vals[i]
         --不为变量则判断是否一致
+        elseif startIndex then
+            if string.sub(curstr,1,startIndex-1)==string.sub(uri_vals[i],1,startIndex-1) then
+                local key = string.sub(curstr,startIndex+1)
+                params[key] = string.sub(uri_vals[i],startIndex)
+            end
         else
           if pattern_vals[i]~=uri_vals[i] then
             return nil
@@ -74,10 +79,10 @@ _M.get_uri_params=function (pattern,uri,origparams)
       end
       local restable = utils.table_merge(origparams,params)
       return restable
-     else 
+     else
       return params
      end
-   end
+  end
 
   return nil
 end
