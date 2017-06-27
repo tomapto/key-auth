@@ -22,6 +22,9 @@ cp代码到这个目录
 curl -X POST http://localhost:8001/apis/ --data "name=mapdesign" --data "upstream_url=http://localhost:3000" --data "methods=POST,PATCH,DELETE,GET,PUT"
 
 curl -X POST http://localhost:8001/apis/mapdesign/plugins --data "name= key-auth"
+
+// socket.io
+curl -X POST http://localhost:8001/apis/ --data "name=mapdesignsocket" --data "methods=GET,POST" --data "uris=/socket.io" -d "strip_uri=false" -d "upstream_url=http://localhost:3500"
 ```
 ## kong 插件目录:
 /usr/local/share/lua/5.1/kong/plugins/key-auth/
