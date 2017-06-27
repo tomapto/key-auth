@@ -124,6 +124,10 @@ return {
             ["GET"]="uploads:list",
             ["POST"]="uploads:write"
         },
+        ["/api/uploads/:ownerId/:uploadId"]=
+        {
+            ["DELETE"]="uploads:write"
+        },
         ["/api/uploads/:ownerId/credentials"]=
         {
            ["GET"]="uploads:write"
