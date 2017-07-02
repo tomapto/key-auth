@@ -25,6 +25,10 @@ curl -X POST http://localhost:8001/apis/mapdesign/plugins --data "name= key-auth
 
 // socket.io
 curl -X POST http://localhost:8001/apis/ --data "name=mapdesignsocket" --data "methods=GET,POST" --data "uris=/socket.io" -d "strip_uri=false" -d "upstream_url=http://localhost:3500"
+//geocoding
+curl -X POST http://localhost:8001/apis/ --data "name=geocoding" --data "methods=GET,POST" --data "uris=/geocoding" -d "strip_uri=true" -d "upstream_url=http://t0-internal.map.design:3100"
+//route
+curl -X POST http://localhost:8001/apis/ --data "name=directions" --data "methods=GET,POST" --data "uris=/directions" -d "strip_uri=true" -d "upstream_url=http://t2-internal.map.design:5000"
 ```
 ## kong 插件目录:
 /usr/local/share/lua/5.1/kong/plugins/key-auth/
