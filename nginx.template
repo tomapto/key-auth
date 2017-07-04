@@ -27,5 +27,15 @@ http {
             ssl_certificate_key /mnt/certificate/213941984030975.key;
             return 301 https://www.map.design$request_uri;
         }
+     server {
+            listen 3005 ssl;
+            server_name map.design:3005;
+
+            ssl_certificate /mnt/certificate/213941984030975.pem;
+            ssl_certificate_key /mnt/certificate/213941984030975.key;
+            location / {
+                            proxy_pass http://localhost:4005;
+                       }
+        }
 
 }
