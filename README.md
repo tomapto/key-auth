@@ -19,7 +19,7 @@ cp代码到这个目录
 ## 安装
 
 ```
-curl -X POST http://localhost:8001/apis/ --data "name=mapdesign" --data "upstream_url=http://localhost:3000" --data "methods=POST,PATCH,DELETE,GET,PUT"
+curl -X POST http://localhost:8001/apis/ --data "name=mapdesign" --data "upstream_url=http://localhost:3000" --data "methods=POST,PATCH,DELETE,GET,PUT" --data "upstream_connect_timeout=300000" --data "upstream_send_timeout=300000" --data "upstream_read_timeout=300000"
 
 curl -X POST http://localhost:8001/apis/mapdesign/plugins --data "name= key-auth"
 
